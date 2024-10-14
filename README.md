@@ -1,5 +1,5 @@
 # Pi-hole Automated Backup Solution
-Script to automate Pi-hole configuration backups. Only the latest four backups are kept.
+Automate your Pi-hole backups with this workflow. The script uses the command-line version of Pi-hole's built-in 'Teleporter' to create a configuration backup, which is then transferred to your chosen destination (e.g., a NAS) via rsync. A log of the transfer is also saved to the destination directory. To conserve space, only the four most recent Teleporter backups are kept and synced, ensuring efficient use of storage.
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
