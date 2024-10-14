@@ -95,8 +95,10 @@ Make a directory for the [backup_pihole.sh script](https://github.com/jlar0che/P
 `sudo mkdir -p /mnt/backup_destination`
 
 5. **Setup the mount so it persists on the Pi-hole after a reboot:** <br>
-Edit `/etc/fstab` with your preferred editor: `sudo nano /etc/fstab` <br>
-Add the command to enable the mount: `//192.168.1.100/Backups/Pi-hole /mnt/backup_destination cifs vers=1.0,user=your-admin-username,password=your-admin-password,x-systemd.automount 0 0`
+Edit `/etc/fstab` with your preferred editor:<br>
+`sudo nano /etc/fstab` <br><br>
+Add the command to enable the mount:<br>
+`//192.168.1.100/Backups/Pi-hole /mnt/backup_destination cifs vers=1.0,user=your-admin-username,password=your-admin-password,x-systemd.automount 0 0`
 
 6. **Verify that the Mount persists on Pi-hole reboot:** <br>
 `sudo reboot now` <br>
@@ -104,7 +106,7 @@ Then, check if mountpoint is still available at `ls /mnt/`
 7. **Setup Password-less SSH connection via SSH Keys**
 This is done so the script can run without prompting for any passwords. <br>
 `ssh-keygen -t rsa -b 4096` <br>
-Then copy the SSH Public Key to the destination device. Note that after being generated the SSH Key files will be placed in the `.ssh` directory under your home directory (`e.g. ~/.ssh`). <br><br>
+Then copy the SSH Public Key to the destination device. Note that after being generated the SSH Key files will be placed in the `.ssh` directory under your home directory (e.g. `~/.ssh`). <br><br>
 You can do this by SCP'ing into your Pi and copying the SSH Public Key (`id_rsa.pub`) to the appropriate location on your backup device as the appropriate user. For me, this was something like:<br>
 `ssh-copy-id -p 22 your-admin-username@192.168.1.100`<br><br>
 Note that to complete the process you will need to enter the password for the specified user once.
@@ -118,8 +120,8 @@ Note that to complete the process you will need to enter the password for the sp
 10. **Check the Log Files on your destination directory:**<br>
 Open `logfile.log` in your destination directory and inspect the entries to make sure all operations executed as expected.
 11. **Setup the script to run automatically (with Cron):**  
-`crontab -e`<br>
-For me, I set it to run on the first of every month by adding the following line to my crontab file: 
+`crontab -e`<br><br>
+For me, I set it to run on the first of every month by adding the following line to my crontab file:<br> 
 `0 0 1 * * /path/to/the_script/name_of_script.sh`
 12. **Verify that the Cron Job was added correctly:**<br>
 `crontab -l`
