@@ -83,7 +83,7 @@ The other assumptions made here are that you will be able to follow the logic of
 ### Installation
 
 1. **Put the script on your Pi-hole:** <br>
-Make a place for the script to live (e.g. `mkdir pihole_backups`).
+Make a directory for the [backup_pihole.sh script](https://github.com/jlar0che/Pi-hole-Automated-Backup-Solution/blob/main/backup_pihole.sh) to live (e.g. `mkdir pihole_backups`), then place it there.
 
 
 2. **Make sure the Script is executable:** <br>
