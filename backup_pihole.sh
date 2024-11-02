@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# -------------------
-# Pi-hole backup v0.6
+# ---------------------
+# Pi-hole backup v0.6.2
 # Jacques_Laroche
-# -------------------
+# ---------------------
 
 # Define variables
 # ----------------
@@ -44,7 +44,7 @@ if [ -n "$BACKUP_FILE" ]; then
     # Sync only .tar.gz files to NAS / Destination Device using rsync, (redirect stdout & stderr to Log file)
 	# -----------------------------------------------------------------------------------
     echo "$(date '+%Y-%m-%d %H:%M:%S') --> Syncing backups to NAS" >> "$LOG_FILE"
-    rsync -av --include="*.tar.gz" --exclude="*" -e "ssh -p $NAS_PORT" "$BACKUP_DIR" "$NAS_USER@$NAS_HOST:$NAS_DIR" >> "$LOG_FILE" 2>&1
+    rsync -av --include="*/" --include="*.tar.gz" --exclude="*" --delete -e "ssh -p $NAS_PORT" "$BACKUP_DIR" "$NAS_USER@$NAS_HOST:$NAS_DIR" >> "$LOG_FILE" 2>&1
 
     if [ $? -eq 0 ]; then
         echo "$(date '+%Y-%m-%d %H:%M:%S') - Sync successful" >> "$LOG_FILE"
