@@ -129,6 +129,10 @@ For me, I set it to run on the first of every month by adding the following line
 
 ## Release History
 
+* 0.6.2
+    * Set rsync to keep number of backups the same on both source and dedtination.
+* 0.6.0
+    * Tested and finalized.
 * 0.6.0
     * Tested and finalized.
 * 0.5.0
