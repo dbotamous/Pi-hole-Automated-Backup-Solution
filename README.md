@@ -89,7 +89,8 @@ Make a directory for the [backup_pihole.sh script](https://github.com/jlar0che/P
 2. **Make sure the Script is executable:** <br>
 `sudo chmod -x backup_pihole.sh`
 
-3. **Make sure Rsync is installed on your Pi-hole:** <br>
+3. **Make sure Rsync is installed on your system running Pi-hole (install if it isn't):** <br>
+`rsync --version`
 
 4. **Mount your destination directory onto your Pi-hole:** <br>
 `sudo mkdir -p /mnt/backup_destination`
